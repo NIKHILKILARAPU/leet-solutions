@@ -6,12 +6,11 @@ class Solution(object):
         """
         even_count=0
         for i in nums:
-            temp = i
             count=0
-            while(temp):
-                digit = temp%10
+            while(i):
+                digit = i%10
                 count = count+1
-                temp=temp//10
+                i=i//10
             if count%2==0:
                 even_count = even_count+1
         return even_count    
