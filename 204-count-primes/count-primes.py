@@ -15,11 +15,7 @@ class Solution(object):
                 for i in range(p*p,n,p):
                     is_prime[i]=False
             p = p+1
-        count = 0
-        for i in is_prime:
-            if i:
-                count = count+1
-        return count                   
+        return sum(is_prime)                   
 
 
         
