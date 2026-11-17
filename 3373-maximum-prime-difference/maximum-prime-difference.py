@@ -1,29 +1,20 @@
 class Solution(object):
     def maximumPrimeDifference(self, nums):
 
-        first = -1
-        last = -1
+        prime_indices = []
 
         for i in range(len(nums)):
+            count = 0
 
-            n = nums[i]
-            prime = True
+            if nums[i] > 1:
+                for j in range(2, nums[i]):
+                    if nums[i] % j == 0:
+                        count += 1
 
-            if n < 2:
-                prime = False
-            else:
-                for j in range(2, int(n ** 0.5) + 1):
-                    if n % j == 0:
-                        prime = False
-                        break
+                if count == 0:
+                    prime_indices.append(i)
 
-            if prime:
-                if first == -1:
-                    first = i
-
-                last = i
-
-        if first == -1:
+        if len(prime_indices) == 0:
             return 0
 
-        return last - first
+        return prime_indices[-1] - prime_indices[0]
